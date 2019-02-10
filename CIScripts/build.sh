@@ -63,6 +63,9 @@ echo "Attempting build of ${UNITYCI_PROJECT_NAME} for WebGL"
 	-batchmode \
 	-nographics \
 	-silent-crashes \
+	-force-free \
+	-username $UNITY_USERNAME \
+	-password $UNITY_PASSWORD \
 	-logFile $(pwd)/unity.log \
 	-projectPath "$(pwd)" \
 	-executeMethod "BuildWebGL.Build" \
