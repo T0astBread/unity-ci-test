@@ -5,6 +5,11 @@
 #  the project folder is "UnityProject". If this is not true then adjust the 
 #  -projectPath argument to point to the right location.
 
+echo "CWD: "
+pwd
+echo "---"
+ls .
+
 # ## Run the editor unit tests
 # echo "Running editor unit tests for ${UNITYCI_PROJECT_NAME}"
 # /Applications/Unity/Unity.app/Contents/MacOS/Unity \
@@ -23,21 +28,21 @@
 # # exit if tests failed
 # if [ $rc0 -ne 0 ]; then { echo "Failed unit tests"; exit $rc0; } fi
 
-## Make the builds
-# Recall from install.sh that a separate module was needed for Windows build support
-echo "Attempting build of ${UNITYCI_PROJECT_NAME} for Windows"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity \
-	-batchmode \
-	-nographics \
-	-silent-crashes \
-	-logFile $(pwd)/unity.log \
-	-projectPath "$(pwd)" \
-	-buildWindowsPlayer "$(pwd)/Build/Windows/${UNITYCI_PROJECT_NAME}.exe" \
-	-quit
+# ## Make the builds
+# # Recall from install.sh that a separate module was needed for Windows build support
+# echo "Attempting build of ${UNITYCI_PROJECT_NAME} for Windows"
+# /Applications/Unity/Unity.app/Contents/MacOS/Unity \
+# 	-batchmode \
+# 	-nographics \
+# 	-silent-crashes \
+# 	-logFile $(pwd)/unity.log \
+# 	-projectPath "$(pwd)" \
+# 	-buildWindowsPlayer "$(pwd)/Builds/Windows/${UNITYCI_PROJECT_NAME}.exe" \
+# 	-quit
 
-rc1=$?
-echo "Build logs (Windows)"
-cat $(pwd)/unity.log
+# rc1=$?
+# echo "Build logs (Windows)"
+# cat $(pwd)/unity.log
 
 # echo "Attempting build of ${UNITYCI_PROJECT_NAME} for OSX"
 # /Applications/Unity/Unity.app/Contents/MacOS/Unity \
@@ -46,7 +51,7 @@ cat $(pwd)/unity.log
 # 	-silent-crashes \
 # 	-logFile $(pwd)/unity.log \
 # 	-projectPath "$(pwd)" \
-# 	-buildOSXUniversalPlayer "$(pwd)/Build/osx/${UNITYCI_PROJECT_NAME}.app" \
+# 	-buildOSXUniversalPlayer "$(pwd)/Builds/osx/${UNITYCI_PROJECT_NAME}.app" \
 # 	-quit
 
 # rc2=$?
@@ -67,4 +72,5 @@ rc2=$?
 echo "Build logs (WebGL)"
 cat $(pwd)/unity.log
 
-exit $(($rc1|$rc2))
+# exit $(($rc1|$rc2))
+exit $rc2
