@@ -15,7 +15,7 @@ if [ $? -ne 0 ]; then { echo "Download failed"; exit $?; } fi
 # if [ $? -ne 0 ]; then { echo "Download failed"; exit $?; } fi
 
 echo 'Downloading Unity 2018.2.11f1 WebGL Build Support pkg:'
-curl --retry 5 -o Unity_webgl.pkg https://download.unity3d.com/download_unity/b8cbb5de9840/MacEditorTargetInstaller/UnitySetup-WebGL-Support-for-Editor-2018.1.1f1.pkg
+curl --retry 5 -o Unity_webgl.pkg https://download.unity3d.com/download_unity/38bd7dec5000/MacEditorTargetInstaller/UnitySetup-WebGL-Support-for-Editor-2018.2.11f1.pkg
 if [ $? -ne 0 ]; then { echo "Download failed"; exit $?; } fi
 
 # Run installer(s)
